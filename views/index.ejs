@@ -1,0 +1,29 @@
+
+<%- include("./partials/header.ejs") %>
+    <h1>Movie Judge</h1>
+    <% if(locals.result) { %>
+        <!---- WEEK TOP 10 ---->
+        
+        <div class="week-top-10">
+            <h2>Week's Top 10</h2>
+            <ol>
+                <% for (let i = 0; i < result[0].data.length; i ++) { %>
+                        <li><%= result[0].data[i].originalTitleText.text %></li>
+                    
+                <% } %>
+            </ol>
+        </div>
+
+        <!--- FAN FAVORITES -->
+        <div class="week-top-10">
+            <h2>Fan Favorites</h2>
+            <ol>
+                <% for (let i = 0; i < 10; i ++) { %>
+                        <li><%= result[1].data.list[i].originalTitleText.text %></li>
+                    
+                <% } %>
+            </ol>
+        </div>
+        <% } %>
+
+        <%- include("./partials/footer.ejs") %>
